@@ -10,5 +10,5 @@ const Orderplaced = () => {
   )
 }
 
-export default orderplaced
+export default Orderplaced;
 
