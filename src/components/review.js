@@ -5,7 +5,7 @@ import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 
 
-const review = ({dataget}) => {
+const Review = ({dataget}) => {
     const router = useRouter()
     const { sharedValues } = useContext(AppContext)
     const productid = router.query

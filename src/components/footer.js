@@ -9,7 +9,7 @@ import Link from 'next/link';
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 
-const footer = () => {
+const Footer = () => {
     const { sharedValues } = useContext(AppContext)
     return (
         <>
@@ -75,4 +75,4 @@ const footer = () => {
     )
 }
 
-export default footer
+export default Footer
