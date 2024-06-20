@@ -58,6 +58,6 @@ const Review = ({dataget}) => {
     )
 }
 
-export default review
+export default Review
 
 

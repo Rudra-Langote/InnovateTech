@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Review from '../components/review';
+import Review from '../components/Review';
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import Head from 'next/head';
-import Success from '../components/orderplaced';
+import Success from '../components/Orderplaced';
 
 
 

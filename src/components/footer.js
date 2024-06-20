@@ -1,6 +1,5 @@
 
-// import 'tailwindcss/tailwind.css';
-import React from 'react'
+// import 'tailwindcss/tailwind.css'
 import gmail from '../../public/envelope.png'
 import linkdin from '../../public/linkedin.png'
 import git from '../../public/github.png'
@@ -9,8 +8,11 @@ import Link from 'next/link';
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 
+
 const Footer = () => {
+   
     const { sharedValues } = useContext(AppContext)
+
     return (
         <>
             <footer id="abt" className="grid bg-black p-2 h-auto grid-cols-2 text-white relative bottom-0">
