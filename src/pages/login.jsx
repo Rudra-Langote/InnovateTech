@@ -4,6 +4,7 @@ import user from "../models/user"
 import { useRouter } from "next/router"
 import { useContext } from "react"
 import AppContext from "../context/AppContext"
+import Head from "next/head"
 
 
 const login = ({username,pass}) => {
@@ -37,6 +38,11 @@ const login = ({username,pass}) => {
     
   }
   return (
+    <>
+    <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Log in</title>
+    </Head>
     <div className=" flex items-center justify-center p-4">
       <div className="flex  items-center w-3/4 h-auto my-10  rounded-md justify-center py-10   shadow-md border-2 border-gray-400">
         <div className="flex flex-col relative items-center md:border-2 md:w-80  bg-white rounded-lg  md:shadow-2xl border-gray-300  ">
@@ -62,6 +68,7 @@ const login = ({username,pass}) => {
       </div>
       
     </div>
+  </>
   )
 }
 

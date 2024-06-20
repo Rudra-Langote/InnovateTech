@@ -18,8 +18,12 @@ const footer = () => {
                     <ul className="ml-10 text-sm space-y-6">
                         
                         <li className="hover:underline"><Link href={"/"}>Home</Link></li>
-                        {sharedValues.value1? <li  className="hover:underline"><Link href={({pathname: '/profile'},'/profile')}>Profile</Link> </li> :
-                        <div>
+                        {sharedValues.value1?
+                        <div className=' space-y-6'> 
+                        <li  className="hover:underline"><Link href={({pathname: '/cart'})}>Cart</Link> </li>
+                        <li  className="hover:underline"><Link href={({pathname: '/profile'})}>Profile</Link> </li>
+                        </div> :
+                        <div className=' space-y-6'>
                         <li className="hover:underline"><Link href={"/login"}>Log in</Link> </li>
                         <li className="hover:underline"><Link href={"/signup"}>Sign up</Link></li>
                         </div>

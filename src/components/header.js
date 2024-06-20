@@ -28,6 +28,9 @@ const Header = () => {
             <li className="hover:bg-black  duration-500 hover:text-white hover:cursor-pointer px-2   py-1 rounded-xl"><Link href={"/"}>Home</Link></li>
             <li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#prd">Products</Link></li>
             <li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#abt">About</Link></li>
+            {
+                sharedValues.value1?<li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href={"/cart"}>Cart</Link></li>:null
+            }
         </ul>
         
             
@@ -50,9 +53,13 @@ const Header = () => {
                 <li onClick={expand} className=" b py-3 w-40"><Link href={"/"}>Home</Link></li>
                 <li className="  w-40 py-3">Products</li>
                 <li className="  w-40 py-3">About</li>
-                {sharedValues.value1? <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/profile'})}>Profile</Link> </li> :
+                {sharedValues.value1? 
                 <div>
-                <li onClick={expand} className=" w-40 py-3"><Link href={"/login"}>Log in</Link> </li>
+                <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/cart'})}>Cart</Link> </li>
+                <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/profile'})}>Profile</Link> </li>
+                </div> :
+                <div>
+                <li onClick={expand} className=" w-40 py-3"><Link href={"/login"}>Log in</Link></li>
                 <li onClick={expand} className="  w-40 py-3"><Link href={"/signup"}>Sign up</Link></li>
                 </div>
                 }

@@ -20,7 +20,7 @@ const review = ({dataget}) => {
                 ]
             }
         ]
-        await fetch('http://localhost:3000/api/addProducts',{
+        await fetch('http://localhost:3000/api/addreview',{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'
@@ -28,6 +28,7 @@ const review = ({dataget}) => {
             body : JSON.stringify(fulldata)
             
         })
+        window.location.reload()
     }
     let obj
     dataget.products.forEach(element => {

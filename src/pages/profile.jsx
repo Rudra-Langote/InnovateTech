@@ -3,13 +3,12 @@ import mongoose from "mongoose"
 import user from "../models/user"
 import AppContext from "../context/AppContext"
 import { useContext } from "react"
+import Head from "next/head"
 
 
 const profile = ({users}) => {
-    console.log(users)
     
     const { sharedValues } = useContext(AppContext)
-    console.log(sharedValues)
         var firstname
         var lastname
         var email
@@ -32,7 +31,21 @@ const profile = ({users}) => {
               window.location.replace('/')
               
             }
-          };
+        };
+        async function userDelete(){
+            
+            await fetch(`http://localhost:3000/api/adduser`,{
+                method : 'DELETE',
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({"username": sharedValues.value2})
+                
+                
+            })
+            localStorage.removeItem('sharedValues');
+            window.location.replace('/')
+        }
 
         
 
@@ -40,7 +53,12 @@ const profile = ({users}) => {
   
 
     return (
-      <div className=" flex items-center justify-center p-4">
+        <>
+        <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Profile</title>
+        </Head>
+       <div className=" flex items-center justify-center p-4">
         <div className="flex  items-center w-3/4 h-auto my-10  rounded-md justify-center py-10   shadow-md border-2 border-gray-400">
           <div className="flex flex-col relative items-center md:border-2 md:px-10 md:w-96  bg-white rounded-lg  md:shadow-2xl border-gray-300  ">
         
@@ -57,7 +75,7 @@ const profile = ({users}) => {
            
             <Link className="flex flex-col" href={"/"}>
                 <button onClick={handleDeleteAccount} className="bg-black hover:scale-110 duration-200 text-white mb-2 text-md rounded-xl mt-10 p-1 px-2">Log out</button>
-                <button   className="underline hover:scale-110 duration-200 rounded-xl text-sm p-2  px-2">Delete Account</button>
+                <button  onClick={userDelete}  className="underline hover:scale-110 duration-200 rounded-xl text-sm p-2  px-2">Delete Account</button>
             </Link>
       
           </div>    
@@ -66,6 +84,7 @@ const profile = ({users}) => {
   
         </div>
       </div>
+    </>  
     )
   
 }
