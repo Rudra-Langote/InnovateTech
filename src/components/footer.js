@@ -1,5 +1,6 @@
 
 // import 'tailwindcss/tailwind.css';
+import React from 'react'
 import gmail from '../../public/envelope.png'
 import linkdin from '../../public/linkedin.png'
 import git from '../../public/github.png'

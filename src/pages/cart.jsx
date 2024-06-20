@@ -68,7 +68,7 @@ const cart = ({data}) => {
         </div>
         {obj?.map((item, index)=>{
 
-            return <div  className=' flex justify-between items-center border-b-2 h-auto border-black w-full'>
+            return <div key={item._id}  className=' flex justify-between items-center border-b-2 h-auto border-black w-full'>
             <div className=' flex items-center md:space-x-32 space-x-8 mx-5 my-10 '>
                 <img className='  h-20' src={item.photo} alt="img" />
                 

@@ -1,4 +1,4 @@
-
+import React from 'react';
 import  'tailwindcss/tailwind.css';
 import mnue from '../../public/mnue.png'
 import profile from '../../public/account.png'
