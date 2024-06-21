@@ -12,7 +12,10 @@ import Link from 'next/link'
 
 // }
 
-function displayoffer(offers){
+
+
+
+export default function Innovatetch({products, offers}) {
     useEffect(()=>{
         let i = 0
         document.getElementById("banner").src = offers[i].img;
@@ -27,12 +30,6 @@ function displayoffer(offers){
             i=(i+1)%3
         }, 3000);
     })
-}
-
-
-
-export default function innovatetch({products, offers}) {
-    displayoffer(offers)
     
 
     return (

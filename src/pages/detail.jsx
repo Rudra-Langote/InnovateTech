@@ -11,7 +11,7 @@ import Success from '../components/Orderplaced';
 
 
 
-export default function detail({ data }) {
+export default function Detail({ data }) {
     const { sharedValues } = useContext(AppContext)
     const router = useRouter()
     const productid = router.query

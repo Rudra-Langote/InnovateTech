@@ -8,7 +8,7 @@ import AppContext from "../context/AppContext"
 import Head from "next/head"
 
 
-const signup = ({users}) => {
+const Signup = ({users}) => {
   const { setSharedValues } = useContext(AppContext);
   const router = useRouter()
   
@@ -138,7 +138,7 @@ const signup = ({users}) => {
   )
 }
 
-export default signup
+export default Signup;
 
 
 export async function getServerSideProps(context){

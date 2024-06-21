@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext';
 import Link from 'next/link';
 import Head from 'next/head';
 
-const cart = ({data}) => {
+const Cart = ({data}) => {
     const { sharedValues } = useContext(AppContext)
     let obj
     data.users.forEach(element =>{
@@ -91,7 +91,7 @@ const cart = ({data}) => {
   )
 }
 
-export default cart
+export default Cart;
 
 
 export async function getServerSideProps(context) {

@@ -8,7 +8,7 @@ import AppContext from "../context/AppContext"
 import Head from "next/head"
 
 
-const login = ({username,pass}) => {
+const Login = ({username,pass}) => {
   const { setSharedValues } = useContext(AppContext);
   const router = useRouter()
   
@@ -73,7 +73,7 @@ const login = ({username,pass}) => {
   )
 }
 
-export default login
+export default Login;
 
 
 

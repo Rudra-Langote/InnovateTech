@@ -7,7 +7,7 @@ import { useContext } from "react"
 import Head from "next/head"
 
 
-const profile = ({users}) => {
+const Profile = ({users}) => {
     
     const { sharedValues } = useContext(AppContext)
         var firstname
@@ -90,7 +90,7 @@ const profile = ({users}) => {
   
 }
 
-export default profile
+export default Profile;
 
 export async function getServerSideProps(context){
 
