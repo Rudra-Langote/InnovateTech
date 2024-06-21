@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Arrow from '../../public/send.png'
 import { useRouter } from 'next/router'
 import AppContext from '../context/AppContext';
@@ -29,7 +29,7 @@ const Review = ({dataget}) => {
             body : JSON.stringify(fulldata)
             
         })
-        router.push('/detail')
+        router.reload()
     }
     let obj
     dataget.products.forEach(element => {
