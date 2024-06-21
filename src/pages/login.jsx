@@ -59,7 +59,7 @@ const Login = ({username,pass}) => {
           
           <button onClick={()=> get({username, pass,router})} className="bg-black text-white mb-2 text-md rounded-xl mt-10 p-1 px-2">Log in</button>
           <label>or</label>
-          <Link href={"/signin"}>
+          <Link href={"/signup"}>
             <button className="underline rounded-xl text-sm p-2  px-2">Sign up</button>
             </Link>
         </div>    

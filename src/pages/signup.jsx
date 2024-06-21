@@ -125,7 +125,7 @@ const Signup = ({users}) => {
 
           <button onClick={() => get({users, router})} className="bg-black hover:scale-110 duration-200 text-white mb-2 text-md rounded-xl mt-10 p-1 px-2">Sign up </button>
           <label className="text-sm text-gray-400">alrady have account?</label>
-          <Link href={"/signin"}>
+          <Link href={"/login"}>
             <button className="underline hover:scale-110 duration-200 rounded-xl text-sm p-2  px-2">Log in</button>
           </Link>
     
