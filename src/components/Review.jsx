@@ -29,7 +29,7 @@ const Review = ({dataget}) => {
             body : JSON.stringify(fulldata)
             
         })
-        window.location.reload()
+        router.push('/detail')
     }
     let obj
     dataget.products.forEach(element => {
