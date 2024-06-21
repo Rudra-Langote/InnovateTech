@@ -54,14 +54,14 @@ const Cart = ({data}) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Your Cart</title>
     </Head>
-    <div onLoad={totalAmount} className=' flex flex-col items-center p-5  justify-center h-screen'>
+    <div onLoad={totalAmount} className='  overflow-hidden flex flex-col items-center p-5  justify-center h-screen'>
         <label className=' text-4xl m-4'>Your Shopping Cart</label>
         <label id="grand_total">Total Amount : 0 </label>
-        <button className="bg-black hover:scale-110 duration-200 text-white text-sm rounded-xl py-1 px-3 ">Buy all</button>
-      <div className='  h-full overflow-auto w-auto  md:w-4/5 '>
+        <button className="bg-black hover:scale-110 duration-200 mb-2  text-white text-sm rounded-xl py-1 px-3 ">Buy all</button>
+      <div className='  h-full bg-slate-100 p-2 overflow-auto w-auto  md:w-4/5 '>
         <div className=' flex justify-between border-b-2  border-black w-full'>
-            <label className=' m-5'>Product</label>
-            <div className=' m-5 space-x-20'>
+            <label className=' my-5 md:m-5'>Product</label>
+            <div className=' my-5 md:m-5 space-x-10  md:space-x-20'>
                 <lable>Price</lable>
                 <lable>Quantity</lable>
                 <lable>Total</lable>
@@ -69,19 +69,19 @@ const Cart = ({data}) => {
         </div>
         {obj?.map((item, index)=>{
 
-            return <div key={item._id}  className=' flex justify-between items-center border-b-2 h-auto border-black w-full'>
-            <div className=' flex items-center md:space-x-32 space-x-8 mx-5 my-10 '>
-                <img className='  h-20' src={item.photo} alt="img" />
+            return <div key={item._id}  className=' flex justify-between  items-center border-b-2 h-auto border-black w-full'>
+            <div className=' flex items-center flex-col  md:flex-row md:space-x-32 pr-20 md:pr-0 md:mx-5 my-10 '>
+                <img className=' h-16 md:h-20' src={item.photo} alt="img" />
                 
-                <div onMouseOver={totalAmount} className=' flex  items-center h-auto space-y-2 w-auto  justify-center flex-col'>
-                    <label className=' font-medium text-lg'>{item.name}</label>
+                <div onMouseOver={totalAmount} className=' flex   items-center  space-y-2   justify-center flex-col'>
+                    <label className=' font-medium text-center text-lg'>{item.name}</label>
                     <Link href={"/cart"}><button onClick={()=> deleteItem(index)} className="bg-black hover:scale-110 duration-200 text-white text-sm rounded-xl py-1 px-3 ">Remove</button></Link>
                 </div>
                 
             </div>
-            <div className=' flex items-center  m-5 space-x-20'>
+            <div className=' flex items-center my-5 md:m-5 space-x-10  md:space-x-20'>
                 <lable>₹{item.price}</lable>
-                <input type="number" id={"quantity"+index} onClick={()=> calc(index)} className=' border-2 border-black w-16' max={5} min={1} defaultValue={1}  />
+                <input type="number" id={"quantity"+index} onClick={()=> calc(index)}  onChange={()=> calc(index)} className=' border-2 border-black w-16' max={5} min={1} defaultValue={1}  />
                 <lable id={"total_price"+index}>{item.price}</lable>
             </div>
         </div>

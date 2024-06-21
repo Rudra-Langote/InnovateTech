@@ -38,7 +38,8 @@ export default function Detail({ data }) {
                   "photo": img,
                   "price": price
                 }
-              ]
+              ],
+    
             }
         ]
         await fetch(`${API_URL}/api/cartapi`,{
