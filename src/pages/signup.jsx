@@ -9,6 +9,7 @@ import Head from "next/head"
 
 
 const Signup = ({users}) => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const { setSharedValues } = useContext(AppContext);
   const router = useRouter()
   
@@ -63,7 +64,7 @@ const Signup = ({users}) => {
         "address" : Address
         }]
       
-        const res = await fetch('http://localhost:3000/api/adduser',{
+        const res = await fetch(`${API_URL}/api/adduser`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

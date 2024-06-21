@@ -12,6 +12,7 @@ import Success from '../components/Orderplaced';
 
 
 export default function Detail({ data }) {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const { sharedValues } = useContext(AppContext)
     const router = useRouter()
     const productid = router.query
@@ -41,7 +42,7 @@ export default function Detail({ data }) {
               "addromeve": true
             }
         ]
-        await fetch('http://localhost:3000/api/cartapi',{
+        await fetch(`${API_URL}/api/cartapi`,{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'
@@ -97,7 +98,8 @@ export default function Detail({ data }) {
 
 
 export async function getServerSideProps(context) {
-    const product = await fetch('http://localhost:3000/api/getProducts')
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const product = await fetch(`${API_URL}/api/getProducts`)
     const data = await product.json()
 
 

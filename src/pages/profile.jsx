@@ -34,8 +34,9 @@ const Profile = ({users}) => {
             }
         };
         async function userDelete(){
+            const API_URL = process.env.NEXT_PUBLIC_API_URL;
             
-            await fetch(`http://localhost:3000/api/adduser`,{
+            await fetch(`${API_URL}/api/adduser`,{
                 method : 'DELETE',
                 headers : {
                     'Content-Type': 'application/json'

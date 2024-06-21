@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 const Cart = ({data}) => {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const { sharedValues } = useContext(AppContext)
     let obj
     data.users.forEach(element =>{
@@ -32,7 +33,7 @@ const Cart = ({data}) => {
 
     async function deleteItem(index){
         
-        await fetch(`http://localhost:3000/api/cartapi`,{
+        await fetch(`${API_URL}/api/cartapi`,{
             method : 'DELETE',
             headers : {
                 'Content-Type': 'application/json'
@@ -95,7 +96,8 @@ export default Cart;
 
 
 export async function getServerSideProps(context) {
-    const product = await fetch('http://localhost:3000/api/cartapi')
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const product = await fetch(`${API_URL}/api/cartapi`)
     const data = await product.json()
 
 
