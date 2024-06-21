@@ -54,9 +54,9 @@ const Review = ({dataget}) => {
             </div>
 
             {obj.toReversed().map((item) =>{
-            return <div key={item._id} className='self-start h-auto  max-w-fit border-gray-400 border-2 shadow-2xl p-2 my-4 rounded-md bg-white'>
-                    <label className=' font-medium p-2'>{item.key}</label>
-                    <p className='self-start text-sm p-2 py-2 '>{item.value}</p>
+            return <div key={item._id} className='self-start h-auto p-2  max-w-fit border-gray-400 border-2 shadow-2xl  my-4 rounded-2xl bg-white'>
+                    <label className=' font-medium'>{item.key}</label>
+                    <p className='self-start text-sm  '>{item.value}</p>
                 </div> 
             })}
         </div>
