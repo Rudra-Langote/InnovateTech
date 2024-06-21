@@ -20,7 +20,7 @@ const Review = ({dataget}) => {
                 ]
             }
         ]
-        await fetch('http://localhost:3000/api/addreview',{
+        await fetch('https://innovate-tech-cinotcrn8-rudras-projects-68bbb288.vercel.app/api/addreview',{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'
