@@ -63,7 +63,7 @@ const Signup = ({users}) => {
         "address" : Address
         }]
       
-        const res = await fetch('https://innovate-tech-cinotcrn8-rudras-projects-68bbb288.vercel.app/api/adduser',{
+        const res = await fetch('http://localhost:3000/api/adduser',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

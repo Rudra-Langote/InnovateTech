@@ -35,7 +35,7 @@ const Profile = ({users}) => {
         };
         async function userDelete(){
             
-            await fetch(`https://innovate-tech-cinotcrn8-rudras-projects-68bbb288.vercel.app/api/adduser`,{
+            await fetch(`http://localhost:3000/api/adduser`,{
                 method : 'DELETE',
                 headers : {
                     'Content-Type': 'application/json'

@@ -41,7 +41,7 @@ export default function Detail({ data }) {
               "addromeve": true
             }
         ]
-        await fetch('https://innovate-tech-cinotcrn8-rudras-projects-68bbb288.vercel.app/api/cartapi',{
+        await fetch('http://localhost:3000/api/cartapi',{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ export default function Detail({ data }) {
 
 
 export async function getServerSideProps(context) {
-    const product = await fetch('https://innovate-tech-cinotcrn8-rudras-projects-68bbb288.vercel.app/api/getProducts')
+    const product = await fetch('http://localhost:3000/api/getProducts')
     const data = await product.json()
 
 
