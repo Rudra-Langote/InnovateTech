@@ -51,8 +51,8 @@ const Header = () => {
             <ul className="flex flex-col text-center items-center">
                 
                 <li onClick={expand} className=" b py-3 w-40"><Link href={"/"}>Home</Link></li>
-                <li className="  w-40 py-3">Products</li>
-                <li className="  w-40 py-3">About</li>
+                <li className="  w-40 py-3"><Link href={({pathname: '/#prd'})}>Products</Link></li>
+                <li className="  w-40 py-3"><Link href={({pathname: '/#abt'})}>About</Link></li>
                 {sharedValues.value1? 
                 <div>
                 <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/cart'})}>Cart</Link> </li>
