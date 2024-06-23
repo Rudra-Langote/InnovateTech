@@ -3,13 +3,22 @@ import Arrow from '../../public/send.png'
 import { useRouter } from 'next/router'
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
+import product from '../models/product'
+import mongoose from 'mongoose'
 
 
 const Review = ({dataget}) => {
+    console.log(dataget)
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter()
     const { sharedValues } = useContext(AppContext)
     const productid = router.query
+
+    // async function get(){
+    //     const sd = await fetch(`${API_URL}/api/getProducts`)
+    //     console.log(JSON.parse(JSON.stringify(sd)))
+    // }
+    // get()
 
     async function send(){
         const data = document.getElementById("usertext").value
@@ -36,7 +45,7 @@ const Review = ({dataget}) => {
         document.getElementById("usertext").value = "";
     }
     let obj
-    dataget.products.forEach(element => {
+    dataget.forEach(element => {
         if(element._id == productid.id){
             obj = element.reviews
         }
@@ -64,5 +73,7 @@ const Review = ({dataget}) => {
 }
 
 export default Review
+
+
 
 

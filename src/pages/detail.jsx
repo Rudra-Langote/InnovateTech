@@ -6,6 +6,8 @@ import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import Head from 'next/head';
 import Success from '../components/Orderplaced';
+import mongoose from 'mongoose';
+import product from '../models/product';
 
 
 
@@ -90,12 +92,23 @@ export default function Detail({ data }) {
         <div id= 'suc' className=" hidden ">
         <Success />
         </div>
-        <Review dataget={data} />
+        <Review dataget={data2}/>
         </>
     )
 }
 
 
+// export async function getServerSideProps(context){
+//     if(!mongoose.connections[0].readyState){
+//         await mongoose.connect(process.env.Mongodb_uri)
+//     }
+//     let data = await product.find()
+
+//     return{
+//         props: { data: JSON.parse(JSON.stringify(data))}
+//         // 
+//     }
+// }
 
 
 export async function getServerSideProps(context) {
