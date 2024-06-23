@@ -92,7 +92,7 @@ export default function Detail({ data }) {
         <div id= 'suc' className=" hidden ">
         <Success />
         </div>
-        <Review dataget={data2}/>
+        <Review dataget={data} />
         </>
     )
 }
