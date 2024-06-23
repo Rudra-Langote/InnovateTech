@@ -7,11 +7,21 @@ import { useContext } from 'react';
 
 
 const Review = ({dataget}) => {
-    console.log(dataget)
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter()
     const { sharedValues } = useContext(AppContext)
     const productid = router.query;
+    // let dataget;
+    // async function get(){
+        
+    //     const as = await fetch(`${API_URL}/api/getProducts`,{
+    //         method: 'GET'
+            
+    //     })
+    //     dataget =  await  as.json()
+        
+    // }
+    
 
     async function send(){
         const data = document.getElementById("usertext").value
@@ -65,6 +75,10 @@ const Review = ({dataget}) => {
     )
 }
 
-export default Review
+export default Review;
+
+
+
+
 
 
