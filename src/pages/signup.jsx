@@ -112,7 +112,7 @@ const Signup = ({ users }) => {
 
     }
     useEffect(()=>{
-      Loading ?  setSup(<div class="flex gap-2">
+      Loading ?  setSup(<div class="flex p-2 gap-2">
         <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
         <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
         <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>

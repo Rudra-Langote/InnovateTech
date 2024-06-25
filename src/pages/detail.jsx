@@ -67,7 +67,7 @@ export default function Detail({ data, da }) {
     }
 
     useEffect(()=>{
-        Loading ?  setAdd(<div class="flex gap-2">
+        Loading ?  setAdd(<div class="flex py-1 px-2 gap-2">
             <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
             <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
             <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
