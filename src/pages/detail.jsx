@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Review from '../components/Review';
@@ -17,6 +17,8 @@ export default function Detail({ data, da }) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const { sharedValues } = useContext(AppContext)
     const router = useRouter()
+    const [Loading, isLoading] = useState(false);
+    const [Add, setAdd] = useState('Add to cart');
     const productid = router.query
     let img, name, price, desc
 
@@ -31,6 +33,7 @@ export default function Detail({ data, da }) {
         }
     })
     async function cartsend() {
+        isLoading(true)
         const fulldata = [
             {
                 "username": sharedValues.value2,
@@ -52,18 +55,24 @@ export default function Detail({ data, da }) {
             body: JSON.stringify(fulldata)
 
         })
-        document.getElementById("added").innerHTML = "Added"
 
         router.push("/cart")
+        isLoading(false)
     }
     function handelmsg() {
         setTimeout(() => {
             document.getElementById('suc').classList.toggle('hidden')
-        }, 5000);
-        document.getElementById('suc').classList.remove('hidden')
-
+        }, 3000);
+        document.getElementById('suc').classList.toggle('hidden')
     }
 
+    useEffect(()=>{
+        Loading ?  setAdd(<div class="flex gap-2">
+            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
+            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
+            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
+        </div>) : setAdd('Add to cart');
+      })
 
 
     return (
@@ -81,7 +90,7 @@ export default function Detail({ data, da }) {
                         <p className=' p-2 pt-5 text-xl '>{desc}</p>
                         <div className='pt-10 px-2'>
                             <button onClick={handelmsg} className="bg-black hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
-                            <button onClick={cartsend} id='added' className="bg-black  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">Add to cart</button>
+                            <button onClick={cartsend} id='added' className="bg-black  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
                         </div>
                     </div>
@@ -89,7 +98,7 @@ export default function Detail({ data, da }) {
                 </div>
 
             </div>
-            <div id='suc' className=" hidden ">
+            <div id='suc' className=" hidden">
                 <Success />
             </div>
             <Review dataget={da} />

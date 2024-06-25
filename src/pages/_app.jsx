@@ -3,6 +3,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { AppProvider } from '../context/AppContext';
 
+
+
 function MyApp({ Component, pageProps }) {
 
     return <AppProvider>
