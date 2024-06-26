@@ -22,9 +22,9 @@ const Header = () => {
     
 
   return (
-    <nav id="home" className="flex  justify-between items-center p-2 px-4 border-black shadow-xl  text-xl ">
-        <span className="text-3xl bg-black text-white pl-1">Innovate<span
-                className="bg-white text-3xl text-black font-bold">Tech</span></span>
+    <nav id="home" className="flex  justify-between items-center sticky top-0 w-full z-10 bg-white p-2 px-4 border-black shadow-xl  text-xl ">
+        <Link href={'/'}><span className="text-3xl bg-black text-white pl-1">Innovate<span
+                className="bg-white text-3xl text-black font-bold">Tech</span></span></Link>
         <ul className="hidden md:flex items-center space-x-16">
             <li className="hover:bg-black  duration-500 hover:text-white hover:cursor-pointer px-2   py-1 rounded-xl"><Link href={"/"}>Home</Link></li>
             <li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#prd">Products</Link></li>

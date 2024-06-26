@@ -5,7 +5,6 @@ const nextConfig = {
     devIndicators: {
         buildActivity: false
     },
-
     
 };
 

@@ -47,7 +47,7 @@ export default function Innovatetch({products, offers}) {
 
             </div>
             
-            <div className="flex flex-col">
+            <div className="flex  flex-col">
 
                 <label id="prd" className=" text-center font-bold text-3xl">Explore Products At <span
                     className="underline">InnovateTech</span>
@@ -59,7 +59,7 @@ export default function Innovatetch({products, offers}) {
                          if(index >9)return null;   
                          
                         return <Link key={item._id} href={{pathname: '/detail', query: {id: `${item._id}`}}}> <div   className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
-                            <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
+                            <Image src={item.img} width={100} height={100}  className=" h-28 w-28 absolute" alt="" />
                             <span className="absolute bottom-6">{item.name}</span>
                             <span className="absolute bottom-1">₹{item.price}</span>
                         </div>
