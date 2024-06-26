@@ -83,7 +83,7 @@ export default function Detail({ data, da }) {
             </Head>
             <div className=' overflow-hidden '>
                 <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
-                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={img} width={1000} height={1000} alt="" /></div>
+                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={img} width={200} height={200} alt="" /></div>
                     <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
                         <label className=' p-2 rfedin text-5xl font-bold'>{name}</label>
                         <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{price}</label>
