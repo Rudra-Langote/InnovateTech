@@ -1,0 +1,62 @@
+.lfedin{
+    animation: lfadein 1.5s;
+}
+@keyframes lfadein {
+    from{
+        transform: translate(-150px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+.rfedin{
+    animation: rfadein 1.5s;
+}
+@keyframes rfadein {
+    from{
+        transform: translate(150px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+    }
+}
+.upfedin{
+    animation: upfadein 1.5s;
+}
+@keyframes upfadein {
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.dwfedin{
+    animation: dwfadein 1.5s;
+}
+@keyframes dwfadein {
+    from{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .lfedin{
+        animation: dwfadein 1.5s;
+    }
+    .rfedin{
+        animation: upfadein 1.5s;
+    }
+
+}    

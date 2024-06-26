@@ -6,7 +6,7 @@ import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import Head from 'next/head';
 import Success from '../components/Orderplaced';
-
+import '../Style/style.css'
 
 
 
@@ -83,14 +83,14 @@ export default function Detail({ data, da }) {
             </Head>
             <div className=' overflow-hidden '>
                 <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
-                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  size-full p-1' quality={100} src={img} width={1000} height={1000} alt="" /></div>
+                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={img} width={1000} height={1000} alt="" /></div>
                     <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
-                        <label className=' p-2 text-5xl font-bold'>{name}</label>
-                        <label className=' p-2 pt-5 text-2xl font-medium '>Price : ₹{price}</label>
-                        <p className=' p-2 pt-5 text-xl '>{desc}</p>
+                        <label className=' p-2 rfedin text-5xl font-bold'>{name}</label>
+                        <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{price}</label>
+                        <p className=' p-2 pt-5 rfedin text-xl '>{desc}</p>
                         <div className='pt-10 px-2'>
-                            <button onClick={handelmsg} className="bg-black hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
-                            <button onClick={cartsend} id='added' className="bg-black  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
+                            <button onClick={handelmsg} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
+                            <button onClick={cartsend} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
                         </div>
                     </div>
@@ -99,7 +99,7 @@ export default function Detail({ data, da }) {
 
             </div>
             <div id='suc' className=" hidden">
-                <Success />
+                <Success/>
             </div>
             <Review dataget={da} />
         </>

@@ -3,6 +3,7 @@ import Arrow from '../../public/send.png'
 import { useRouter } from 'next/router'
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
+import '../Style/style.css'
 
 
 
@@ -58,15 +59,15 @@ const Review = ({dataget}) => {
 
     return (
 
-        <div className=' max-h-screen px-4 border-2 bg-gray-100 overflow-auto'>
-            <label className=' text-2xl font-bold p-2'>Reviews</label>
-            <div className=' relative flex flex-col items-center p-2  h-auto md:m-10 '>
+        <div className=' max-h-screen  px-4 border-2 bg-gray-100 overflow-auto'>
+            <label className=' text-2xl rfedin font-bold p-2'>Reviews</label>
+            <div className=' relative flex dwfedin flex-col items-center p-2  h-auto md:m-10 '>
                 <textarea id='usertext' type="url" className='w-full p-2 pr-9 border-2 border-black text-black overflow-y-hidden min-h-20 max-h-20 rounded-lg' placeholder='Enter your feeback of the product' />
                 <img src={Arrow.src} onClick={send} className=' h-7  absolute right-4 md:right-5 top-8' alt="" />
             </div>
 
             {obj.toReversed().map((item) =>{
-            return <div key={item._id} className='self-start h-auto p-2  max-w-fit border-gray-400 border-2 shadow-2xl  my-4 rounded-2xl bg-white'>
+            return <div key={item._id} className='self-start h-auto p-2 dwfedin max-w-fit border-gray-400 border-2 shadow-2xl  my-4 rounded-2xl bg-white'>
                     <label className=' font-medium'>{item.key}</label>
                     <p className='self-start text-sm  '>{item.value}</p>
                 </div> 

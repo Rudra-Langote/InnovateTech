@@ -8,6 +8,7 @@ import { useContext } from 'react';
 
 
 
+
 function expand(){
     document.getElementById("menu").classList.toggle("hidden")
    
@@ -21,7 +22,7 @@ const Header = () => {
     
 
   return (
-    <nav id="home" className="flex justify-between items-center p-2 px-4 border-black shadow-xl  text-xl ">
+    <nav id="home" className="flex  justify-between items-center p-2 px-4 border-black shadow-xl  text-xl ">
         <span className="text-3xl bg-black text-white pl-1">Innovate<span
                 className="bg-white text-3xl text-black font-bold">Tech</span></span>
         <ul className="hidden md:flex items-center space-x-16">
