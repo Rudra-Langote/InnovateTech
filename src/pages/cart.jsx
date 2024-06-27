@@ -4,8 +4,10 @@ import AppContext from '../context/AppContext';
 import Link from 'next/link';
 import Head from 'next/head';
 import Success from '../components/Orderplaced';
+import { useRouter } from 'next/router';
 
 const Cart = ({data}) => {
+    const router = useRouter()
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const { sharedValues } = useContext(AppContext)
     let obj
@@ -64,8 +66,8 @@ const Cart = ({data}) => {
     <div onLoad={totalAmount} className='   w-full flex flex-col items-center p-2 justify-center h-screen'>
         <label className=' text-4xl m-4'>Your Shopping Cart</label>
         <label id="grand_total">Total Amount : 0 </label>
-        <button onClick={handelmsg} className="bg-black hover:scale-110 duration-200 mb-2  text-white text-sm rounded-xl py-1 px-3 ">Buy all</button>
-        <div id='suc' className=" w-full hidden">
+        <button onClick={sharedValues.value1?handelmsg:()=>router.push('/signup')} className="bg-black hover:scale-110 duration-200 mb-2  text-white text-sm rounded-xl py-1 px-3 ">Buy all</button>
+        <div  style={{height:'110px'}} className=" w-full">
                 <Success />
             </div>
       <div className='  h-full bg-slate-100 p-2 w-full  overflow-auto  md:w-4/5 '>

@@ -31,8 +31,9 @@ export default function Innovatetch({products, offers}) {
             i=(i+1)%3
         }, 3000);
     })
-    
 
+
+    
     return (
         <div>
             <Head>
@@ -54,7 +55,7 @@ export default function Innovatetch({products, offers}) {
                 </label>
                 <div className="my-10 mx-5">
                    <label className=" font-bold text-xl md:text-2xl">Speakers & Headphones</label>
-                    <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
+                    <div className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item,index)=> {
                          if(index >9)return null;   
                          

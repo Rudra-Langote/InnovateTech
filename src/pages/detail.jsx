@@ -59,7 +59,7 @@ export default function Detail({ data, da }) {
         router.push("/cart")
         isLoading(false)
     }
-    function handelmsg() {
+    function handelmsg(){
         setTimeout(() => {
             document.getElementById('suc').classList.toggle('hidden')
         }, 3000);
@@ -89,8 +89,8 @@ export default function Detail({ data, da }) {
                         <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{price}</label>
                         <p className=' p-2 pt-5 rfedin text-xl '>{desc}</p>
                         <div className='pt-10 px-2'>
-                            <button onClick={handelmsg} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
-                            <button onClick={cartsend} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
+                            <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
+                            <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
                         </div>
                     </div>
@@ -98,7 +98,7 @@ export default function Detail({ data, da }) {
                 </div>
 
             </div>
-            <div id='suc' className=" hidden">
+            <div style={{height:'70px'}}>
                 <Success/>
             </div>
             <Review dataget={da} />
