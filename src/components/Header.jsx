@@ -5,6 +5,7 @@ import profile from '../../public/account.png'
 import Link from 'next/link'
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
+import '../Style/style.css'
 
 
 
@@ -48,20 +49,20 @@ const Header = () => {
         }
         
         <img src={mnue.src} onClick={expand} className="h-10 md:hidden" alt="img"/>
-        <div id="menu" className="absolute z-10 right-1 top-14  bg-white hidden shadow-xl border-2 w-40">
-            <ul className="flex flex-col text-center items-center">
+        <div id="menu" className="absolute z-10 right-1 top-14  bg-white hidden dwfedin   shadow-xl border-2 w-40">
+            <ul className="flex flex-col text-center  items-center">
                 
-                <li onClick={expand} className=" b py-3 w-40"><Link href={"/"}>Home</Link></li>
-                <li className="  w-40 py-3"><Link href={'/#prd'}>Products</Link></li>
-                <li className="  w-40 py-3"><Link href={'/#abt'}>About</Link></li>
+                <Link href={"/"}><li onClick={expand} className="  b py-3 w-40">Home</li></Link>
+                <Link href={'/#prd'}><li className="  w-40 py-3">Products</li></Link>
+                <Link href={'/#abt'}><li className="  w-40 py-3">About</li></Link>
                 {sharedValues.value1? 
                 <div>
-                <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/cart'})}>Cart</Link> </li>
-                <li onClick={expand} className=" w-40 py-3"><Link href={({pathname: '/profile'})}>Profile</Link> </li>
+                <Link href={({pathname: '/cart'})}><li onClick={expand} className=" w-40 py-3">Cart</li></Link> 
+                <Link href={({pathname: '/profile'})}><li onClick={expand} className=" w-40 py-3">Profile</li></Link> 
                 </div> :
                 <div>
-                <li onClick={expand} className=" w-40 py-3"><Link href={"/login"}>Log in</Link></li>
-                <li onClick={expand} className="  w-40 py-3"><Link href={"/signup"}>Sign up</Link></li>
+                <Link href={"/login"}><li onClick={expand} className=" w-40 py-3">Log in</li></Link>
+                <Link href={"/signup"}><li onClick={expand} className="  w-40 py-3">Sign up</li></Link>
                 </div>
                 }
             </ul>
