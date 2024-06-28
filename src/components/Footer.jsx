@@ -41,7 +41,7 @@ const Footer = () => {
                         <label className="underline font-bold ml-2" htmlFor="ul">Visit</label>
 
                         <div className="flex space-x-5 ml-2">
-                            <Link href={'mailto:rudralangote@gmail.com'}>
+                            <Link href={'mailto:langoterudra@gmail.com'}>
                                 <img  className="h-5 invert"src={gmail.src} alt="" />
                             </Link>
                             <Link href={'https://www.linkedin.com/in/rudra-langote-439366291/'}> 
