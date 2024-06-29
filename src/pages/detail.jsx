@@ -12,7 +12,7 @@ import '../Style/style.css'
 
 
 
-export default function Detail({ data, da }) {
+export default function Detail({ data}) {
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const { sharedValues } = useContext(AppContext)
@@ -31,6 +31,9 @@ export default function Detail({ data, da }) {
             desc = element.desc
 
         }
+
+
+
     })
     async function cartsend() {
         isLoading(true)
@@ -101,7 +104,7 @@ export default function Detail({ data, da }) {
             <div style={{height:'70px'}}>
                 <Success/>
             </div>
-            <Review dataget={da} />
+            <Review dataget={data} />
         </>
     )
 }
@@ -111,23 +114,27 @@ export default function Detail({ data, da }) {
 
 
 export async function getServerSideProps(context) {
+    
+    const url = context.req.url
+    let url_arr = url.split("=")
+    let id = url_arr[1]
+    let ful = [{"id":id}]
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    const product = await fetch(`${API_URL}/api/getProducts`)
+    const product = await fetch(`${API_URL}/api/getProducts`,{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+            'User-agent': 'lerning app',
+        },
+        body: JSON.stringify(ful),
+    })
     const data = await product.json()
 
 
 
-    const as = await fetch(`${API_URL}/api/getProducts`, {
-        method: 'GET'
-
-    })
-    let da = await as.json()
-
-
-
-
     return {
-        props: { data, da }
+        props: { data }
     }
 
 }
