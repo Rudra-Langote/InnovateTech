@@ -33,7 +33,7 @@ export default function Innovatetch({products, offers}) {
     })
 
 
-    
+
     return (
         <div>
             <Head>
@@ -54,7 +54,7 @@ export default function Innovatetch({products, offers}) {
                     className="underline">InnovateTech</span>
                 </label>
                 <div className="my-10 mx-5">
-                   <label className=" font-bold text-xl md:text-2xl">Speakers & Headphones</label>
+                   <label className=" font-bold text-xl md:text-2xl">Most Tranding</label>
                     <div className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item,index)=> {
                          if(index >9)return null;   
@@ -72,7 +72,7 @@ export default function Innovatetch({products, offers}) {
                 </div>
 
                 <div className="my-10 mx-5">
-                    <label className=" font-bold text-xl md:text-2xl">Smartphones & Tablets</label>
+                    <label className=" font-bold text-xl md:text-2xl">Recommended for you</label>
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                     {products.map((item,index)=> {
                          if(index >9 && index < 20){
@@ -89,7 +89,7 @@ export default function Innovatetch({products, offers}) {
                 </div>
 
                 <div className="my-10 mx-5">
-                    <label className=" font-bold text-xl md:text-2xl">Pc & Accessories</label>
+                    <label className=" font-bold text-xl md:text-2xl">Newly added</label>
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item,index)=> {
                             if(index >19 && index < 30){
