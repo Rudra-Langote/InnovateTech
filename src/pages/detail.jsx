@@ -90,7 +90,7 @@ export default function Detail({ data}) {
                     <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
                         <label className=' p-2 rfedin text-5xl font-bold'>{name}</label>
                         <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{price}</label>
-                        <p className=' p-2 pt-5 rfedin text-xl '>{desc}</p>
+                        <p className=' p-2 pt-5 rfedin text-lg '>{desc}</p>
                         <div className='pt-10 px-2'>
                             <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
                             <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
