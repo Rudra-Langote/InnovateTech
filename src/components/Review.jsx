@@ -48,12 +48,12 @@ const Review = ({dataget}) => {
     function vanish(){
         document.getElementById("usertext").value = "";
     }
-    let obj
-    dataget.products.forEach(element => {
-        if(element._id == productid.id){
-            obj = element.reviews
-        }
-    });
+    // let obj
+    // dataget.products.forEach(element => {
+    //     if(element._id == productid.id){
+    //         obj = element.reviews
+    //     }
+    // });
     
 
 
@@ -66,7 +66,7 @@ const Review = ({dataget}) => {
                 <img src={Arrow.src} onClick={sharedValues.value1?send:() => router.push('/signup')} className=' h-7  absolute right-4 md:right-5 top-8' alt="" />
             </div>
 
-            {obj.toReversed().map((item) =>{
+            {dataget.toReversed().map((item) =>{
             return <div key={item._id} className='self-start h-auto text-wrap  p-2 dwfedin max-w-fit border-gray-400 border-2 shadow-2xl  my-4 rounded-2xl bg-white'>
                     <label className=' font-medium'>{item.key}</label>
                     <p className='self-start text-sm break-words '>{item.value}</p>

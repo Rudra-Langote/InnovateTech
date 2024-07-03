@@ -52,7 +52,7 @@ const Header = () => {
         <div id="menu" className="absolute z-10 right-1 top-14  bg-white hidden dwfedin   shadow-xl border-2 w-40">
             <ul className="flex flex-col text-center  items-center">
                 
-                <Link href={"/"}><li onClick={expand} className="  b py-3 w-40">Home</li></Link>
+                <Link  href={"/"}><li onClick={expand} className="  b py-3 w-40">Home</li></Link>
                 <Link href={'/#prd'}><li className="  w-40 py-3">Products</li></Link>
                 <Link href={'/#abt'}><li className="  w-40 py-3">About</li></Link>
                 {sharedValues.value1? 

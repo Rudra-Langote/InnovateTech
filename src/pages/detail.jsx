@@ -6,6 +6,8 @@ import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import Head from 'next/head';
 import Success from '../components/Orderplaced';
+import mongoose from 'mongoose';
+import product from '../models/product'
 import '../Style/style.css'
 
 
@@ -22,19 +24,19 @@ export default function Detail({ data}) {
     const productid = router.query
     let img, name, price, desc
 
-    let data2 = data.products
-    data2.forEach(element => {
-        if (element._id == productid.id) {
-            img = element.img
-            name = element.name
-            price = element.price
-            desc = element.desc
+    // let data2 = data.products
+    // data2.forEach(element => {
+    //     if (element._id == productid.id) {
+    //         img = element.img
+    //         name = element.name
+    //         price = element.price
+    //         desc = element.desc
 
-        }
+    //     }
 
 
 
-    })
+    // })
     async function cartsend() {
         isLoading(true)
         const fulldata = [
@@ -86,11 +88,11 @@ export default function Detail({ data}) {
             </Head>
             <div className=' overflow-hidden '>
                 <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
-                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={img} width={200} height={200} alt="" /></div>
+                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={data.img} width={500} height={500} alt="" /></div>
                     <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
-                        <label className=' p-2 rfedin text-5xl font-bold'>{name}</label>
-                        <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{price}</label>
-                        <p className=' p-2 pt-5 rfedin text-xl '>{desc}</p>
+                        <label className=' p-2 rfedin text-5xl font-bold'>{data.name}</label>
+                        <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{data.price}</label>
+                        <p className=' p-2 pt-5 rfedin text-xl '>{data.desc}</p>
                         <div className='pt-10 px-2'>
                             <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
                             <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
@@ -104,7 +106,7 @@ export default function Detail({ data}) {
             <div style={{height:'70px'}}>
                 <Success/>
             </div>
-            <Review dataget={data} />
+            <Review dataget={data.reviews} />
         </>
     )
 }
@@ -118,23 +120,15 @@ export async function getServerSideProps(context) {
     const url = context.req.url
     let url_arr = url.split("=")
     let id = url_arr[1]
-    let ful = [{"id":id}]
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
-    const product = await fetch(`${API_URL}/api/getProducts`,{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json',
-            accept: 'application/json',
-            'User-agent': 'lerning app',
-        },
-        body: JSON.stringify(ful),
-    })
-    const data = await product.json()
+    if (!mongoose.connections[0].readyState) {
+        await mongoose.connect(process.env.Mongodb_uri)
+    }
+    let data = await product.findById(id)
 
 
 
     return {
-        props: { data }
+        props: { data: JSON.parse(JSON.stringify(data)) }
     }
 
 }
