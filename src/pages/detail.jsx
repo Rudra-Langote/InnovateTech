@@ -44,9 +44,9 @@ export default function Detail({ data}) {
                 "username": sharedValues.value2,
                 "cart": [
                     {
-                        "name": name,
-                        "photo": img,
-                        "price": price
+                        "name": data.name,
+                        "photo": data.img,
+                        "price": data.price
                     }
                 ],
 
