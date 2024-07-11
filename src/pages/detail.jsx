@@ -21,22 +21,9 @@ export default function Detail({ data}) {
     const router = useRouter()
     const [Loading, isLoading] = useState(false);
     const [Add, setAdd] = useState('Add to cart');
-    const productid = router.query
-    let img, name, price, desc
-
-    // let data2 = data.products
-    // data2.forEach(element => {
-    //     if (element._id == productid.id) {
-    //         img = element.img
-    //         name = element.name
-    //         price = element.price
-    //         desc = element.desc
-
-    //     }
-
-
-
-    // })
+    
+    
+   
     async function cartsend() {
         isLoading(true)
         const fulldata = [
