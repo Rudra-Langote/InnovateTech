@@ -44,7 +44,7 @@ const Signup = ({ users }) => {
       pass: pass2ref.current.value,
       address: addressref.current.value
     }
-    
+
 
 
     if (user.current.firstname == "") {
@@ -89,40 +89,39 @@ const Signup = ({ users }) => {
       addressref.current.focus();
       setError('Address is required')
     }
+    else if (users.includes(user.current.username)) {
+      dyseref.current.classList.toggle("hidden")
+      setError('This username already exiest')
+    }
     else {
-      if (users.includes(user.current.username)) {
-        dyseref.current.classList.toggle("hidden")
-        setError('This username already exiest')
-      }
-      else {
-        isLoading(true)
+      isLoading(true)
 
-        dyseref.current.classList.add("hidden")
+      dyseref.current.classList.add("hidden")
 
-        var j = [user.current]
-        const res = await fetch(`${API_URL}/api/adduser`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(j)
+      var j = [user.current]
+      await fetch(`${API_URL}/api/adduser`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(j)
 
 
-        })
-        isLoading(false)
-        const data = true
-        setSharedValues({ value1: data, value2: user.current.username })
-        router.push({ pathname: '/' })
-
-      }
-
+      })
+      isLoading(false)
+      const data = true
+      setSharedValues({ value1: data, value2: user.current.username })
+      router.push({ pathname: '/' })
 
     }
 
 
-
-
   }
+
+
+
+
+
 
 
 
@@ -146,7 +145,7 @@ const Signup = ({ users }) => {
 
       <div className=" flex items-center justify-center p-4">
         <div className="flex  items-center w-3/4 h-auto my-10  rounded-md justify-center py-10   shadow-md border-2 border-gray-400">
-          <div className="flex flex-col relative items-center md:border-2 md:px-10 md:w-96  bg-white rounded-lg  md:shadow-2xl border-gray-300  ">
+          <div className="flex flex-col relative items-center w-3/4 md:border-2 md:px-10 md:w-96  bg-white rounded-lg  md:shadow-2xl border-gray-300  ">
 
             <span className=" text-3xl mt-10  bg-black text-white pl-1">Sign<span
               className="bg-white text-3xl text-black font-bold">up</span></span>
@@ -194,6 +193,7 @@ const Signup = ({ users }) => {
       </div>
     </>
   )
+
 }
 
 export default Signup;
