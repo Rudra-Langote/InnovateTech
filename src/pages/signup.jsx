@@ -160,23 +160,23 @@ const Signup = ({ users }) => {
               </div>
             </div>
 
-            <input ref={fnameref} type="text" placeholder="First Name" className=" outline-none   rounded-sm border-b-2  mt-5 border-black" />
+            <input ref={fnameref} type="text" placeholder="First Name" className=" outline-none w-3/4   rounded-sm border-b-2  mt-5 border-black" />
 
 
-            <input ref={lnameref} type="text" placeholder="Lastname" className=" outline-none rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={lnameref} type="text" placeholder="Lastname" className=" outline-none w-3/4 rounded-sm mt-5 border-b-2 border-black" />
 
 
-            <input ref={emailref} type="email" placeholder="Email" className=" outline-none  rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={emailref} type="email" placeholder="Email" className=" outline-none w-3/4  rounded-sm mt-5 border-b-2 border-black" />
 
 
-            <input ref={usernameref} type="text" placeholder="Enter Username" className="  outline-none  rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={usernameref} type="text" placeholder="Enter Username" className="  outline-none  w-3/4 rounded-sm mt-5 border-b-2 border-black" />
 
 
-            <input ref={passref} type="password" placeholder="Password" className=" outline-none  rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={passref} type="password" placeholder="Password" className=" outline-none w-3/4  rounded-sm mt-5 border-b-2 border-black" />
 
-            <input ref={pass2ref} type="password" placeholder="Re-enter Password" className=" outline-none  rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={pass2ref} type="password" placeholder="Re-enter Password" className=" outline-none w-3/4 rounded-sm mt-5 border-b-2 border-black" />
 
-            <input ref={addressref} type="text" placeholder="Address" className="  outline-none  rounded-sm mt-5 border-b-2 border-black" />
+            <input ref={addressref} type="text" placeholder="Address" className="  outline-none w-3/4  rounded-sm mt-5 border-b-2 border-black" />
 
 
             <button onClick={() => get({ users, router })} className="bg-black p-1 hover:scale-110 duration-200 text-white mb-2 text-md rounded-xl mt-10  px-2">{Sup}</button>
