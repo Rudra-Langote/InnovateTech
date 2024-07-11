@@ -16,7 +16,7 @@ import Link from 'next/link'
 
 
 
-export default function Innovatetch({ products, offers }) {
+export default function Techshop({ products, offers }) {
     useEffect(() => {
         let i = 0
         document.getElementById("banner").src = offers[i].img;
@@ -38,12 +38,12 @@ export default function Innovatetch({ products, offers }) {
         <div>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>InnovateTech</title>
+                <title>TechShop</title>
             </Head>
 
             <div className="mt-14 px-5 flex  flex-col items-center">
                 <label htmlFor="img" className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
-                    className="underline">InnovateTech</span></label>
+                    className="underline">TechShop</span></label>
                 <Image id="banner" src={"data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="} width={100} height={100} className="h-96 w-full mb-5" alt="" />
 
             </div>
@@ -51,7 +51,7 @@ export default function Innovatetch({ products, offers }) {
             <div className="flex  flex-col">
 
                 <label id="prd" className=" text-center font-bold text-3xl">Explore Products At <span
-                    className="underline">InnovateTech</span>
+                    className="underline">TechShop</span>
                 </label>
                 <div className="my-10 mx-5">
                     <label className=" font-bold text-xl md:text-2xl">Most Tranding</label>

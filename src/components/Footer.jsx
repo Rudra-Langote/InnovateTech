@@ -32,7 +32,7 @@ const Footer = () => {
                         </div>
                         }
                     </ul>
-                    <span className="text-3xl absolute bottom-20 mx-auto  left-0 lg:left-80 lg:bottom-24 bg-black text-white pl-1">Innovate<span
+                    <span className="text-3xl absolute bottom-20 mx-auto  left-0 lg:left-80 lg:bottom-24 bg-black text-white pl-1">Tech<span
                         className="bg-white text-3xl text-black font-bold">Tech</span></span>
 
                 </div>
@@ -59,11 +59,11 @@ const Footer = () => {
                     </div>
                     <div>
                         <label className="font-bold underline ml-2" htmlFor="">About</label>
-                        <p className="ml-2 text-sm">Welcome to InnovateTech, your premier destination htmlFor
+                        <p className="ml-2 text-sm">Welcome to Techshop, your premier destination htmlFor
                             cutting-edge tech products. We pride ourselves
                             on offering the latest innovations in technology, serving customers worldwide. With a commitment
                             to
-                            quality and excellence, InnovateTech ensures you stay ahead in the fast-paced tech world.
+                            quality and excellence, Techshop ensures you stay ahead in the fast-paced tech world.
                             Discover
                             the future with us today!
                         </p>
