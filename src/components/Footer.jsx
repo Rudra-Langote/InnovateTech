@@ -34,8 +34,8 @@ const Footer = () => {
                         </div>
                         }
                     </ul>
-                    <span className="text-3xl absolute bottom-20 mx-auto  left-0 lg:left-80 lg:bottom-24 bg pl-1">Tech<span
-                        className="bg-white text-3xl bg  font-bold">Tech</span></span>
+                    <span className="text-3xl absolute bottom-20 mx-auto bg-black left-0 lg:left-80 lg:bottom-24 bg pl-1">Tech<span
+                        className="bg-white text-3xl bg  font-bold">Shop</span></span>
 
                 </div>
                 <div className=" border-l-2 border-white bg h-full w-full space-y-4 p-2 ">
