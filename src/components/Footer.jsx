@@ -16,30 +16,30 @@ const Footer = () => {
     return (
         <>
             <hr/>
-            <footer id="abt" className="grid bg p-2 bg-black h-auto grid-cols-2 text-white relative bottom-0">
+            <footer id="abt" className="grid bg p-2 bg h-auto grid-cols-2 text-white relative bottom-0">
                 
-                <div className=" h-full w-full bg-black space-y-4 p-2 ">
+                <div className=" h-full w-full  bg space-y-4 p-2 ">
                     <label className="underline font-bold ml-10" htmlFor="ul">Direct link</label>
                     <ul className="ml-10 text-sm space-y-6">
                         
                         <li className="hover:underline"><Link href={"/"}>Home</Link></li>
                         {sharedValues.value1?
-                        <div className=' space-y-6'> 
+                        <div className=' bg space-y-6'> 
                         <li  className="hover:underline"><Link href={({pathname: '/cart'})}>Cart</Link> </li>
                         <li  className="hover:underline"><Link href={({pathname: '/profile'})}>Profile</Link> </li>
                         </div> :
-                        <div className=' space-y-6'>
+                        <div className=' bg space-y-6'>
                         <li className="hover:underline"><Link href={"/login"}>Log in</Link> </li>
                         <li className="hover:underline"><Link href={"/signup"}>Sign up</Link></li>
                         </div>
                         }
                     </ul>
-                    <span className="text-3xl absolute bottom-20 mx-auto  left-0 lg:left-80 lg:bottom-24 bg-black text-white pl-1">Tech<span
-                        className="bg-white text-3xl text-black font-bold">Tech</span></span>
+                    <span className="text-3xl absolute bottom-20 mx-auto  left-0 lg:left-80 lg:bottom-24 bg pl-1">Tech<span
+                        className="bg-white text-3xl bg  font-bold">Tech</span></span>
 
                 </div>
-                <div className=" border-l-2 border-white h-full w-full space-y-4 p-2 ">
-                    <div className="space-y-2">
+                <div className=" border-l-2 border-white bg h-full w-full space-y-4 p-2 ">
+                    <div className=" bg  space-y-2">
                         <label className="underline font-bold ml-2" htmlFor="ul">Visit</label>
 
                         <div className="flex space-x-5 ml-2">
