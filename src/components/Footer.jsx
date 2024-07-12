@@ -44,16 +44,16 @@ const Footer = () => {
 
                         <div className="flex space-x-5 ml-2">
                             <Link href={'mailto:langoterudra@gmail.com'}>
-                                <img  className="h-5 invert"src={gmail.src} alt="" />
+                                <img  className="h-5 "src={gmail.src} alt="" />
                             </Link>
                             <Link href={'https://www.linkedin.com/in/rudra-langote-439366291/'}> 
-                                <img className="h-5 invert" src={linkdin.src} alt="" />
+                                <img className="h-5 " src={linkdin.src} alt="" />
                             </Link> 
                             <Link href={'https://github.com/Rudra-Langote'}>
-                                <img className="h-5 invert" src={git.src} alt="" />
+                                <img className="h-5 " src={git.src} alt="" />
                             </Link>
                             <Link href={'https://x.com/Rudra_2945'}>
-                                <img className="h-5 invert" src={twitter.src} alt="" />
+                                <img className="h-5 " src={twitter.src} alt="" />
                             </Link>
                             
                         </div>
