@@ -37,6 +37,13 @@
         opacity: 1;
     }
 }
+div{
+    background-color: white;
+    color: black;
+}
+.text{
+    font-size: 50px;
+}
 .dwfedin{
     animation: dwfadein 1.5s;
 }
@@ -50,6 +57,28 @@
         opacity: 1;
     }
 }
+.text-ent{
+    animation: 3.3s fadeIn ease-in-out ;
+  
+}
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    75%{
+      opacity: 1;
+  
+    }
+    100%{
+      opacity: 0;
+  
+    }
+  }
 
 @media (max-width: 768px) {
     .lfedin{

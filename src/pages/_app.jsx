@@ -3,12 +3,13 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { AppProvider } from '../context/AppContext';
 import {Poppins} from '@next/font/google'
+import '../Style/style.css'
 
 
 const roboto = Poppins({
 
     subsets:['latin'],
-    weight: ['400','600']
+    weight: ['200','300']
 })
 
 function MyApp({ Component, pageProps }) {

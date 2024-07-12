@@ -23,7 +23,7 @@ const Header = () => {
     
 
   return (
-    <nav id="home" className="flex  justify-between items-center sticky top-0 w-full z-10 bg-white p-2 px-4 border-black shadow-xl  text-xl ">
+    <nav id="home" className="flex bg justify-between items-center sticky top-0 w-full z-10 bg-white p-2 px-4 border-black shadow-xl  text-xl ">
         <Link href={'/'}><span className="text-3xl bg-black text-white pl-1">Tech<span
                 className="bg-white text-3xl text-black font-bold">Shop</span></span></Link>
         <ul className="hidden md:flex items-center space-x-16">
@@ -48,11 +48,11 @@ const Header = () => {
 
         }
         
-        <img src={mnue.src} onClick={expand} className="h-10 md:hidden" alt="img"/>
-        <div id="menu" className="absolute z-10 right-1 top-14  bg-white hidden dwfedin   shadow-xl border-2 w-40">
-            <ul className="flex flex-col text-center  items-center">
+        <img src={mnue.src} onClick={expand} className="h-10 bg md:hidden" alt="img"/>
+        <div id="menu" className="absolute z-10 right-1 top-14  bg hidden dwfedin   shadow-xl border-2 w-40">
+            <ul className="flex flex-col text-center bg  items-center">
                 
-                <Link  href={"/"}><li onClick={expand} className="  b py-3 w-40">Home</li></Link>
+                <Link  href={"/"}><li onClick={expand} className="  py-3 w-40">Home</li></Link>
                 <Link href={'/#prd'}><li className="  w-40 py-3">Products</li></Link>
                 <Link href={'/#abt'}><li className="  w-40 py-3">About</li></Link>
                 {sharedValues.value1? 

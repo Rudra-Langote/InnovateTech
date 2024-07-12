@@ -5,6 +5,8 @@ import mongoose from 'mongoose'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import Link from 'next/link'
+import Heading from '../components/Heading'
+// import '../Style/style.css'
 
 
 
@@ -38,17 +40,23 @@ export default function Techshop({ products, offers }) {
         <div>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                
                 <title>TechShop</title>
             </Head>
+            <div className=' flex overflow-hidden items-center h-80  mx-5 justify-center'>
+             <Heading/>
+            </div>
+            
 
-            <div className="mt-14 px-5 flex  flex-col items-center">
+            <div className="mt-5 px-5 flex  flex-col items-center">
                 <label htmlFor="img" className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
                     className="underline">TechShop</span></label>
-                <Image id="banner" src={"data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="} width={100} height={100} className="h-96 w-full mb-5" alt="" />
+                <Image id="banner" src={"data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="} width={100} height={100} className="h-96 w-full rounded-lg mb-5" alt="" />
 
             </div>
 
             <div className="flex  flex-col">
+                
 
                 <label id="prd" className=" text-center font-bold text-3xl">Explore Products At <span
                     className="underline">TechShop</span>
@@ -60,7 +68,7 @@ export default function Techshop({ products, offers }) {
                             if (index > 9) return null;
 
                             return <Link key={item._id} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
-                                <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
+                                <Image src={item.img} width={100} height={100} className="  h-28 w-28 absolute" alt="" />
                                 <span className="absolute bottom-6">{item.name}</span>
                                 <span className="absolute bottom-1">₹{item.price}</span>
                             </div>

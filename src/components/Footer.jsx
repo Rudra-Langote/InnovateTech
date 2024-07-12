@@ -15,7 +15,9 @@ const Footer = () => {
 
     return (
         <>
-            <footer id="abt" className="grid bg-black p-2 h-auto grid-cols-2 text-white relative bottom-0">
+            <hr/>
+            <footer id="abt" className="grid bg p-2 h-auto grid-cols-2 text-white relative bottom-0">
+                
                 <div className=" h-full w-full space-y-4 p-2 ">
                     <label className="underline font-bold ml-10" htmlFor="ul">Direct link</label>
                     <ul className="ml-10 text-sm space-y-6">
