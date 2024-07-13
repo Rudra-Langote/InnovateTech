@@ -49,7 +49,7 @@ export default function Techshop({ products, offers }) {
             
 
             <div className="mt-5 px-5 flex  flex-col items-center">
-                <label htmlFor="img" className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
+                <label htmlFor="img"  className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
                     className="underline">TechShop</span></label>
                 <Image id="banner" src={"data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="} width={100} height={100} className="h-96 w-full rounded-lg mb-5" alt="" />
 
@@ -67,7 +67,7 @@ export default function Techshop({ products, offers }) {
                         {products.map((item, index) => {
                             if (index > 9) return null;
 
-                            return <Link key={item._id} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
+                            return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
                                 <Image src={item.img} width={100} height={100} className="  h-28 w-28 absolute" alt="" />
                                 <span className="absolute bottom-6">{item.name}</span>
                                 <span className="absolute bottom-1">₹{item.price}</span>
@@ -84,7 +84,7 @@ export default function Techshop({ products, offers }) {
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 9 && index < 20) {
-                                return <Link key={item._id} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300  w-36 min-w-40 h-40 relative flex flex-col items-center">
+                                return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300  w-36 min-w-40 h-40 relative flex flex-col items-center">
                                     <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
                                     <span className="absolute bottom-6">{item.name}</span>
                                     <span className="absolute bottom-1">₹{item.price}</span>
@@ -101,7 +101,7 @@ export default function Techshop({ products, offers }) {
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 19 && index < 30) {
-                                return <Link key={item._id} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
+                                return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
                                     <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
                                     <span className="absolute bottom-6">{item.name}</span>
                                     <span className="absolute bottom-1">₹{item.price}</span>
