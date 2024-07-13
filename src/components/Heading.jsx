@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const Heading = () => {
-    const title = ['Innovating Your Shopping Experience','Discover Top Tech Products at TechShop','Find Your Next Tech Upgrade at TechShop','Explore the Latest Gadgets at TechShop'];
+    const title = ['Innovating Your Shopping Experience','Discover Top Tech Products','Find Your Next Tech Upgrade','Explore the Latest Gadgets'];
     const [Index, setIndex] = useState(0)
     const titref = useRef()
     useEffect(() => {
@@ -19,8 +19,9 @@ const Heading = () => {
 
   },[Index])
   return (
-    <div className=' p-2  bg-white text-center '>
-      <span ref={titref}  className=' text font-sm text-black text-ent'>{title[Index]}</span>
+    <div className=' p-2 m-auto text font-sm text-black   w-auto text-center '>
+      <span ref={titref}  className=' text-ent'>{title[Index]}</span><span className=' font-bold'> at TechShop</span>
+     
         
     </div>
   )
