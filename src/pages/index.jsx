@@ -118,7 +118,8 @@ export default function Techshop({ products, offers }) {
 
 }
 
-export async function getServerSideProps(context) {
+
+export  async function getServerSideProps(context) {
     if (!mongoose.connections[0].readyState) {
         await mongoose.connect(process.env.Mongodb_uri)
     }

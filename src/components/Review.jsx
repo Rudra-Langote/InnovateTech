@@ -3,11 +3,13 @@ import Arrow from '../../public/send.png'
 import { useRouter } from 'next/router'
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
-import '../Style/style.css'
+
+
 
 
 
 const Review = ({dataget}) => {
+    console.log(dataget)
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter()
     const { sharedValues } = useContext(AppContext)
@@ -25,12 +27,12 @@ const Review = ({dataget}) => {
     
 
     async function send(){
-        const data = document.getElementById("usertext").value
-        const fulldata = [
+        const dataget = document.getElementById("usertext").value
+        const fulldataget = [
             {
                 "_id": productid.id,
                 "reviews": [
-                    { "key": sharedValues.value2, "value": data }
+                    { "key": sharedValues.value2, "value": dataget }
                 ]
             }
         ]
@@ -39,7 +41,7 @@ const Review = ({dataget}) => {
             headers : {
                 'Content-Type': 'application/json'
             },
-            body : JSON.stringify(fulldata)
+            body : JSON.stringify(fulldataget)
             
         })
         vanish()
@@ -75,6 +77,7 @@ const Review = ({dataget}) => {
         </div>
     )
 }
+
 
 export default Review;
 

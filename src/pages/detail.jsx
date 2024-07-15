@@ -5,10 +5,11 @@ import Review from '../components/Review';
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import Head from 'next/head';
+import { getServerSideProps as fetchData } from './api/server';
 import Success from '../components/Orderplaced';
-import mongoose from 'mongoose';
-import product from '../models/product'
-import '../Style/style.css'
+// import mongoose from 'mongoose';
+// import product from '../models/product'
+
 
 
 
@@ -67,56 +68,58 @@ export default function Detail({ data}) {
       })
 
 
-    return (
-        <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Product</title>
-            </Head>
-            <div className=' overflow-hidden '>
-                <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
-                    <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={data.img} width={500} height={500} alt="" /></div>
-                    <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
-                        <label className=' p-2 rfedin text-5xl font-bold'>{data.name}</label>
-                        <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{data.price}</label>
-                        <p className=' p-2 pt-5 rfedin text-xl '>{data.desc}</p>
-                        <div className='pt-10 px-2'>
-                            <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
-                            <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
+     return (
+         <>
+             <Head>
+                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                 <title>Product</title>
+             </Head>
+             <div className=' overflow-hidden '>
+                 <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
+                     <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={data.img} width={500} height={500} alt="" /></div>
+                     <div className=' flex flex-col py-10  md:h-4/5 md:w-3/5'>
+                         <label className=' p-2 rfedin text-5xl font-bold'>{data.name}</label>
+                         <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{data.price}</label>
+                         <p className=' p-2 pt-5 rfedin text-xl '>{data.desc}</p>
+                         <div className='pt-10 px-2'>
+                             <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
+                             <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
-                        </div>
-                    </div>
+                         </div>
+                     </div>
 
-                </div>
+                 </div>
 
-            </div>
-            <div style={{height:'70px'}}>
-                <Success/>
-            </div>
+             </div>
+             <div style={{height:'70px'}}>
+                 <Success/>
+             </div>
             <Review dataget={data.reviews} />
-        </>
-    )
+         </>
+     )
 }
 
+export {fetchData as getServerSideProps};
 
 
 
 
-export async function getServerSideProps(context) {
+
+// export async function getServerSideProps(context) {
     
-    const url = context.req.url
-    let url_arr = url.split("=")
-    let id = url_arr[1]
-    if (!mongoose.connections[0].readyState) {
-        await mongoose.connect(process.env.Mongodb_uri)
-    }
-    let data = await product.findById(id)
+//     const url = context.req.url
+//     let url_arr = url.split("=")
+//     let id = url_arr[1]
+//     if (!mongoose.connections[0].readyState) {
+//         await mongoose.connect(process.env.Mongodb_uri)
+//     }
+//     let data = await product.findById(id)
 
 
 
-    return {
-        props: { data: JSON.parse(JSON.stringify(data)) }
-    }
+//     return {
+//         props: { data: JSON.parse(JSON.stringify(data)) }
+//     }
 
-}
+// }
 
