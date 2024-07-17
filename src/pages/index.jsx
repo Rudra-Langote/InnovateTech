@@ -3,7 +3,7 @@ import product from '../models/product'
 import offer from '../models/offer'
 import mongoose from 'mongoose'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Heading from '../components/Heading'
 // import '../Style/style.css'
@@ -19,6 +19,8 @@ import Heading from '../components/Heading'
 
 
 export default function Techshop({ products, offers }) {
+    const ref = useRef()
+    const [serch, setserch] = useState('');
     useEffect(() => {
         let i = 0
         document.getElementById("banner").src = offers[i].img;
@@ -40,23 +42,48 @@ export default function Techshop({ products, offers }) {
         <div>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                
+
                 <title>TechShop</title>
             </Head>
-            <div className=' flex overflow-hidden items-center h-80  mx-5 justify-center'>
-             <Heading/>
-            </div>
-            
 
-            <div className="mt-5 px-5 flex  flex-col items-center">
-                <label htmlFor="img"  className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
+            <form class="max-w-md  mt-5 mx-auto">
+                <div class="relative">
+
+                    <svg className="w-6 absolute top-4 left-2 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+
+                    <input onChange={(e) => setserch(e.target.value.toLowerCase())} onFocus={() => { ref.current.classList.remove('hidden') }} type="search" id="default-search" class="block w-full bg-black p-4 ps-10 text-white text-sm border  rounded-lg  " placeholder="Search Products..." required />
+                </div>
+                <div ref={ref} style={{ "scrollbar-width": "1px" }} className='  rounded-lg absolute hidden   z-[5] mx-auto w-full max-w-md overflow-auto bg-white  max-h-[150px] border-[3px] border-black '>
+                    {products.filter((item) => { return serch.toLowerCase() === '' ? item : item.name.toLowerCase().includes(serch) }).map((item) => {
+                        return <Link prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}>
+                            <li className=' list-none cursor-pointer  rounded-md hover:bg-black hover:text-white duration-500 border-2 py-2  px-3'>{item.name}</li>
+                        </Link>
+                    })}
+
+
+
+
+
+
+                </div>
+            </form>
+
+            <div onClick={() => { ref.current.classList.add('hidden') }} className=' flex overflow-hidden items-center h-80  mx-5 justify-center'>
+                <Heading />
+            </div>
+
+
+            <div onClick={() => { ref.current.classList.add('hidden') }} className="mt-5 px-5 flex  flex-col items-center">
+                <label htmlFor="img" className="text-center font-bold text-3xl mb-2">Amazing Offers In <span
                     className="underline">TechShop</span></label>
                 <Image id="banner" src={"data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="} width={100} height={100} className="h-96 w-full rounded-lg mb-5" alt="" />
 
             </div>
 
             <div className="flex  flex-col">
-                
+
 
                 <label id="prd" className=" text-center font-bold text-3xl">Explore Products At <span
                     className="underline">TechShop</span>
@@ -119,7 +146,7 @@ export default function Techshop({ products, offers }) {
 }
 
 
-export  async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
     if (!mongoose.connections[0].readyState) {
         await mongoose.connect(process.env.Mongodb_uri)
     }
