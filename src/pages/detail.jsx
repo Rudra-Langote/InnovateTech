@@ -61,9 +61,9 @@ export default function Detail({ data}) {
 
     useEffect(()=>{
         Loading ?  setAdd(<div class="flex py-1 px-2 gap-2">
-            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
-            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
-            <div class="w-2 h-2 rounded-full animate-pulse bg-white"></div>
+            <div class="w-2 h-2 rounded-full animate-pulse bg-black"></div>
+            <div class="w-2 h-2 rounded-full animate-pulse bg-black"></div>
+            <div class="w-2 h-2 rounded-full animate-pulse bg-black"></div>
         </div>) : setAdd('Add to cart');
       })
 
