@@ -56,8 +56,8 @@ export default function Techshop({ products, offers }) {
                     <input onChange={(e) => setserch(e.target.value.toLowerCase())} onFocus={() => { ref.current.classList.remove('hidden') }} type="search" id="default-search" class="block w-full bg-black p-4 ps-10 text-white text-sm border  rounded-lg  " placeholder="Search Products..." required />
                 </div>
                 <div ref={ref} style={{ "scrollbar-width": "1px" }} className='  rounded-lg absolute hidden   z-[5] mx-auto w-full max-w-md overflow-auto bg-white  max-h-[150px] border-[3px] border-black '>
-                    {products.filter((item) => { return serch.toLowerCase() === '' ? item : item.name.toLowerCase().includes(serch) }).map((item) => {
-                        return <Link prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}>
+                    {products.filter((item) => { return serch.toLowerCase() === '' ? item : item.name.toLowerCase().includes(serch) }).map((item,index) => {
+                        return <Link key={index} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}>
                             <li className=' list-none cursor-pointer  rounded-md hover:bg-black hover:text-white duration-500 border-2 py-2  px-3'>{item.name}</li>
                         </Link>
                     })}
