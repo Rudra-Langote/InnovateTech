@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import  'tailwindcss/tailwind.css';
 import mnue from '../../public/mnue.png'
 import profile from '../../public/account.png'
@@ -6,6 +6,8 @@ import Link from 'next/link'
 import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import '../Style/style.css'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 
 
@@ -19,25 +21,46 @@ function expand(){
 
 const Header = () => {
     const { sharedValues } = useContext(AppContext)
+    const titleRef = useRef()
+    const profRef = useRef()
     
+    useGSAP(()=>{
+        
+        gsap.from(titleRef.current,{
+            x:-200,
+            duration:1,
+            opacity:0
+        })
+        gsap.from(profRef.current,{
+            x:200,
+            duration:1,
+            opacity:0
+        })
+        gsap.from(".opp",{
+            y:-200,
+            duration:1,
+            opacity:0,
+        })
+        
+    })
     
 
   return (
-    <nav id="home" className="flex bg justify-between items-center sticky top-0 w-full z-10 bg-white p-2 px-4 border-black shadow-xl  text-xl ">
-        <Link href={'/'}><span className="text-3xl bg-black text-white pl-1">Tech<span
+    <nav id="home" className="flex  justify-between items-center sticky top-0 w-full z-10 bg-white p-2 px-4 border-black shadow-xl  text-xl ">
+        <Link ref={titleRef}  href={'/'}><span   className="text-3xl  bg-black text-white pl-1">Tech<span
                 className="bg-white text-3xl text-black font-bold">Shop</span></span></Link>
-        <ul className="hidden md:flex items-center space-x-16">
-            <li className="hover:bg-black  duration-500 hover:text-white hover:cursor-pointer px-2   py-1 rounded-xl"><Link href={"/"}>Home</Link></li>
-            <li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#prd">Products</Link></li>
-            <li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#abt">About</Link></li>
+        <ul  className=" opp  hidden md:flex items-center space-x-16">
+            <li  className="   hover:bg-black  duration-500 hover:text-white hover:cursor-pointer px-2   py-1 rounded-xl"><Link href={"/"}>Home</Link></li>
+            <li  className="   hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#prd">Products</Link></li>
+            <li  className="   hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href="/#abt">About</Link></li>
             {
-                sharedValues.value1?<li className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href={"/cart"}>Cart</Link></li>:null
+                sharedValues.value1?<li  className="hover:bg-black duration-500 hover:text-white hover:cursor-pointer px-2  py-1 rounded-xl"><Link href={"/cart"}>Cart</Link></li>:null
             }
         </ul>
         
             
-        {sharedValues.value1?<Link href={({pathname: '/profile'})}> <img src={profile.src} className="h-10 hidden md:block " alt="img"/> </Link>:
-        <div id='btn' className=" hidden md:flex space-x-5">
+        {sharedValues.value1?<Link  href={({pathname: '/profile'})}> <img src={profile.src} className="h-10 hidden md:block " alt="img"/> </Link>:
+        <div id='btn' ref={profRef} className=" hidden md:flex space-x-5">
             <Link href={"/login"}>
                 <button className="bg-black hover:scale-110 duration-200 text-white text-sm rounded-xl p-1 px-2">Log in</button>
             </Link>

@@ -1,19 +1,15 @@
-import Head from 'next/head'
-import product from '../models/product'
-import offer from '../models/offer'
-import mongoose from 'mongoose'
-import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
-import Heading from '../components/Heading'
-// import '../Style/style.css'
+import Head from 'next/head';
+import product from '../models/product';
+import offer from '../models/offer';
+import mongoose from 'mongoose';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import Heading from '../components/Heading';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 
-
-//  function id_getter(id){
-//     console.log(id);
-
-// }
 
 
 
@@ -21,6 +17,7 @@ import Heading from '../components/Heading'
 export default function Techshop({ products, offers }) {
     const ref = useRef()
     const [serch, setserch] = useState('');
+    const pageRef = useRef()
     useEffect(() => {
         let i = 0
         document.getElementById("banner").src = offers[i].img;
@@ -36,10 +33,21 @@ export default function Techshop({ products, offers }) {
         }, 3000);
     })
 
+    useGSAP(()=>{
+        
+        gsap.from(pageRef.current,{
+            opacity:0,
+            duration:1.5,
+            
+        })
+ 
+        
+    })
+
 
 
     return (
-        <div>
+        <div ref={pageRef}>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -70,7 +78,7 @@ export default function Techshop({ products, offers }) {
                 </div>
             </form>
 
-            <div onClick={() => { ref.current.classList.add('hidden') }} className=' flex overflow-hidden items-center h-80  mx-5 justify-center'>
+            <div onClick={() => { ref.current.classList.add('hidden') }} className='  flex overflow-hidden items-center h-80  mx-5 justify-center'>
                 <Heading />
             </div>
 
@@ -90,11 +98,11 @@ export default function Techshop({ products, offers }) {
                 </label>
                 <div className="my-10 mx-5">
                     <label className=" font-bold text-xl md:text-2xl">Most Tranding</label>
-                    <div className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
+                    <div   className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 9) return null;
 
-                            return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
+                            return <Link  key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
                                 <Image src={item.img} width={100} height={100} className="  h-28 w-28 absolute" alt="" />
                                 <span className="absolute bottom-6">{item.name}</span>
                                 <span className="absolute bottom-1">₹{item.price}</span>
