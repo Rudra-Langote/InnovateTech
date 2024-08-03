@@ -78,7 +78,7 @@ export default function Techshop({ products, offers }) {
                 </div>
             </form>
 
-            <div onClick={() => { ref.current.classList.add('hidden') }} className='  flex overflow-hidden items-center h-80  mx-5 justify-center'>
+            <div onClick={() => { ref.current.classList.add('hidden') }} className=' text-center  flex flex-col md:flex-row overflow-hidden items-center h-80  mx-5 justify-center'>
                 <Heading />
             </div>
 

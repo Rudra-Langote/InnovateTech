@@ -48,8 +48,8 @@ const Heading = () => {
 
     <>
     
-      <span ref={titrefone} className=' text-[30px] md:text-[50px] text-ent'>{title[Index]}</span><span ref={titreftwo}  className=' text-[30px] md:text-[50px] font-bold'> at TechShop</span>
-
+      <div ref={titrefone} className=' text-[30px] md:text-[50px] text-ent'>{title[Index]}</div><div ref={titreftwo}  className='text-[30px] md:text-[50px] font-bold'> at TechShop</div>
+      
     </>
     
   )
