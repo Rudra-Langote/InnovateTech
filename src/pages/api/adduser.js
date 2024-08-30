@@ -11,7 +11,13 @@ const handler = async (req, res)=>{
 
         await existinguser.save();
 
-    }else{
+    }
+    else if(req.method == 'POST'){
+        const {username} = req.body;
+        let singleUser = await user.findOne({"username": username})
+        return res.status(200).json(singleUser)
+    }
+     else{
         for(let i = 0; i < req.body.length; i++){
             let u = new user({
                 firstname : req.body[i].firstname,

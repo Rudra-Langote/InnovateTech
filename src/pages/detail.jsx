@@ -17,7 +17,7 @@ import Success from '../components/Orderplaced';
 
 export default function Detail({ data}) {
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
     const { sharedValues } = useContext(AppContext)
     const router = useRouter()
     const [Loading, isLoading] = useState(false);
@@ -52,6 +52,66 @@ export default function Detail({ data}) {
         router.push("/cart")
         isLoading(false)
     }
+
+    
+    const [isProcessing, setIsProcessing] = useState(false)
+    
+    const handlePayment = async () => {
+        setIsProcessing(true);
+        
+        try {
+            const res = await fetch(`${API_URL}/api/adduser`,{
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({username : sharedValues.value2})
+
+            });
+            if (!res.ok) {
+                throw new Error("User not found");
+            }
+            const user = await res.json();
+
+            const response = await fetch(`${API_URL}/api/createorder`, { 
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount: data.price * 100 })
+
+             });
+            if (!response.ok) {
+                throw new Error("Failed to create order");
+            }
+            const dataord = await response.json();
+
+            const options = {
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+                amount: data.price * 100,
+                currency: "INR",
+                name: "TechShop",
+                description: "Product Purchase",
+                order_id: dataord.orderId,
+                handler: function (response) {
+                    console.log("Payment Successful", response);
+                },
+                prefill: {
+                    name: user.firstname + user.lastname,
+                    email: user.email,
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.open();
+        } catch (error) {
+            console.error("Error in Payment:", error);
+        } finally {
+            setIsProcessing(false);
+        }
+    };
     function handelmsg(){
         setTimeout(() => {
             document.getElementById('suc').classList.toggle('hidden')
@@ -82,7 +142,7 @@ export default function Detail({ data}) {
                          <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{data.price}</label>
                          <p className=' p-2 pt-5 rfedin text-xl '>{data.desc}</p>
                          <div className='pt-10 px-2'>
-                             <button onClick={sharedValues.value1?handelmsg:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
+                             <button disabled={isProcessing} onClick={sharedValues.value1?handlePayment:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
                              <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
                          </div>

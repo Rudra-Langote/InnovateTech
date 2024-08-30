@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Heading from '../components/Heading';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Cards from '../components/Card'
 
 
 
@@ -33,15 +34,15 @@ export default function Techshop({ products, offers }) {
         }, 3000);
     })
 
-    useGSAP(()=>{
-        
-        gsap.from(pageRef.current,{
-            opacity:0,
-            duration:1.5,
-            
+    useGSAP(() => {
+
+        gsap.from(pageRef.current, {
+            opacity: 0,
+            duration: 1.5,
+
         })
- 
-        
+
+
     })
 
 
@@ -64,7 +65,7 @@ export default function Techshop({ products, offers }) {
                     <input onChange={(e) => setserch(e.target.value.toLowerCase())} onFocus={() => { ref.current.classList.remove('hidden') }} type="search" id="default-search" class="block w-full bg-black p-4 ps-10 text-white text-sm border  rounded-lg  " placeholder="Search Products..." required />
                 </div>
                 <div ref={ref} style={{ "scrollbar-width": "1px" }} className='  rounded-lg absolute hidden   z-[5] mx-auto w-full max-w-md overflow-auto bg-white  max-h-[150px] border-[3px] border-black '>
-                    {products.filter((item) => { return serch.toLowerCase() === '' ? item : item.name.toLowerCase().includes(serch) }).map((item,index) => {
+                    {products.filter((item) => { return serch.toLowerCase() === '' ? item : item.name.toLowerCase().includes(serch) }).map((item, index) => {
                         return <Link key={index} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}>
                             <li className=' list-none cursor-pointer  rounded-md hover:bg-black hover:text-white duration-500 border-2 py-2  px-3'>{item.name}</li>
                         </Link>
@@ -98,16 +99,15 @@ export default function Techshop({ products, offers }) {
                 </label>
                 <div className="my-10 mx-5">
                     <label className=" font-bold text-xl md:text-2xl">Most Tranding</label>
-                    <div   className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
+                    <div className=" mt-1 shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 9) return null;
 
-                            return <Link  key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
-                                <Image src={item.img} width={100} height={100} className="  h-28 w-28 absolute" alt="" />
-                                <span className="absolute bottom-6">{item.name}</span>
-                                <span className="absolute bottom-1">₹{item.price}</span>
-                            </div>
-                            </Link>
+                            return <Cards key={item._id}
+                                id={item._id}
+                                img={item.img}
+                                name={item.name}
+                                price={item.price} />
 
                         })}
 
@@ -119,12 +119,11 @@ export default function Techshop({ products, offers }) {
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 9 && index < 20) {
-                                return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300  w-36 min-w-40 h-40 relative flex flex-col items-center">
-                                    <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
-                                    <span className="absolute bottom-6">{item.name}</span>
-                                    <span className="absolute bottom-1">₹{item.price}</span>
-                                </div>
-                                </Link>
+                                return <Cards key={item._id}
+                                id={item._id}
+                                img={item.img}
+                                name={item.name}
+                                price={item.price} />
                             } return null;
                         })}
 
@@ -136,12 +135,11 @@ export default function Techshop({ products, offers }) {
                     <div className=" mt-1  shadow-lg p-3 flex flex-row w-auto overflow-auto whitespace-nowrap space-x-5">
                         {products.map((item, index) => {
                             if (index > 19 && index < 30) {
-                                return <Link key={item._id} prefetch={true} href={{ pathname: '/detail', query: { id: `${item._id}` } }}> <div className=" hover:shadow-2xl hover:scale-105 duration-300 w-36 min-w-40 h-40 relative flex flex-col items-center">
-                                    <Image src={item.img} width={100} height={100} className=" h-28 w-28 absolute" alt="" />
-                                    <span className="absolute bottom-6">{item.name}</span>
-                                    <span className="absolute bottom-1">₹{item.price}</span>
-                                </div>
-                                </Link>
+                                return <Cards key={item._id}
+                                id={item._id}
+                                img={item.img}
+                                name={item.name}
+                                price={item.price} />
                             } return null;
                         })}
                     </div>
