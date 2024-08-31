@@ -21,7 +21,7 @@ const Cart = ({ data }) => {
         
         try {
             const res = await fetch(`${API_URL}/api/adduser`,{
-                method:"POST",
+                method:"PUT",
                 headers: {
                     'Content-Type': 'application/json'
                 },

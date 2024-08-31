@@ -12,7 +12,7 @@ const handler = async (req, res)=>{
         await existinguser.save();
 
     }
-    else if(req.method == 'POST'){
+    else if(req.method == 'PUT'){
         const {username} = req.body;
         let singleUser = await user.findOne({"username": username})
         return res.status(200).json(singleUser)
