@@ -112,12 +112,7 @@ export default function Detail({ data}) {
             setIsProcessing(false);
         }
     };
-    function handelmsg(){
-        setTimeout(() => {
-            document.getElementById('suc').classList.toggle('hidden')
-        }, 3000);
-        document.getElementById('suc').classList.toggle('hidden')
-    }
+    
 
     useEffect(()=>{
         Loading ?  setAdd(<div class="flex py-1 px-2 gap-2">
@@ -142,7 +137,7 @@ export default function Detail({ data}) {
                          <label className=' p-2 rfedin pt-5 text-2xl font-medium '>Price : ₹{data.price}</label>
                          <p className=' p-2 pt-5 rfedin text-xl '>{data.desc}</p>
                          <div className='pt-10 px-2'>
-                             <button disabled={isProcessing} onClick={sharedValues.value1?handlePayment:()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
+                             <button disabled={isProcessing} onClick={sharedValues.value1? handlePayment :()=> router.push('/signup')} className="bg-black upfedin hover:scale-110 duration-200 text-white text-sm rounded-xl py-2 px-3 ">Buy now</button>
                              <button onClick={sharedValues.value1?cartsend:()=> router.push('/signup')} id='added' className="bg-black upfedin  hover:scale-110 duration-200 text-white text-sm rounded-xl ml-5 py-2 px-3">{Add}</button>
 
                          </div>
