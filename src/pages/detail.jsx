@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import Head from 'next/head';
 import { getServerSideProps as fetchData } from './api/server';
 import Success from '../components/Orderplaced';
+import Script from 'next/script';
 // import mongoose from 'mongoose';
 // import product from '../models/product'
 
@@ -129,6 +130,7 @@ export default function Detail({ data}) {
                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                  <title>Product</title>
              </Head>
+             <Script src="https://checkout.razorpay.com/v1/checkout.js" />
              <div className=' overflow-hidden '>
                  <div className='flex flex-col mt-5 md:flex-row h-auto md:h-4/5 md:w-screen  my-3 '>
                      <div className='flex   items-center justify-center h-auto md:h-4/5 md:w-2/5'><Image className='md:h-4/5 md:w-3/5  lfedin size-full p-1' quality={100} src={data.img} width={500} height={500} alt="" /></div>
